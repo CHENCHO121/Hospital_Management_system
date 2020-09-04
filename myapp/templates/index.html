@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+    <h1 class="text-uppercase text-center mt-5">Admin Dashboard</h1>
+     <div class="row text-center" style="margin-top: 8rem;">
+        <div class="mydiv col-md-4 col-sm-6" >
+            <h1><a class=" text-danger" href="/view_doctor">{{ doc }}</a> </h1>
+            <h4 class="text-capitalize"><i class="fa fa-user-md"></i> doctor </h4>
+        </div>
+        <div class="mydiv col-md-4 col-sm-6">
+            <h1><a class=" text-danger" href="/view_patient">{{ pat }}</a></h1>
+            <h4 class="text-capitalize"><i class="fa fa-bed"></i> patient</h4>
+        </div>
+        <div class="mydiv col-md-4 col-sm-6">
+            <h1><a class=" text-danger" href="/view_appointment">{{ appoint }}</a></h1>
+            <h4 class="text-capitalize"><i class="fa fa-address-card"></i> appointment</h4>
+        </div>
+
+     </div>
+    </div>
+{% endblock content %}

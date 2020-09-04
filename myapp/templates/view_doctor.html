@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <br><br>
+        <h2 class="text-capitalize text-center mt-5">view doctors</h2>
+        <div class="row text-center justify-content-center" style="margin-top: 6rem;">
+        <div class="col-auto">
+            <table class=" table table-hover table-dark text-danger" id="example" style="border-radius: 4px">
+                <thead>
+                <tr class="text-white">
+                    <th scope="col">Doctor ID</th>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Specialization</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in doctor %}
+                <tr class="text-capitalize">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.mobile }}</td>
+                    <td>{{ i.special }}</td>
+                    <td><a class="btn btn-danger" href="/delete_doctor/{{ i.pk }}" onclick="return confirm('Are you sure')">Delete</a> </td>
+                     <td><a href="/edit_doctor/{{ i.pk }}" class="btn btn-primary">Edit</a> </td>
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+
+{% endblock content %}

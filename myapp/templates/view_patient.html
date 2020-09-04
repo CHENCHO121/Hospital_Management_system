@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <br><br>
+        <h2 class="text-capitalize text-center mt-5">view patient</h2>
+        <div class="row text-center justify-content-center" style="margin-top: 6rem;">
+        <div class="col-auto">
+            <table class=" table table-hover table-dark text-danger" id="example" style="border-radius: 4px">
+                <thead>
+                <tr class="text-white">
+                    <th scope="col">Patient ID</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in pat %}
+                <tr class="text-capitalize">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ i.name }}</td>
+                    <th>{{ i.gender }}</th>
+                    <td>{{ i.mobile }}</td>
+                    <td>{{ i.address }}</td>
+                    <td><a class="btn btn-danger" href="/delete_patient/{{ i.pk }}" onclick="return confirm('Are you sure')">Delete</a> </td>
+                    <td><a href="/edit_patient/{{ i.pk }}" class="btn btn-primary">Edit</a> </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+
+{% endblock content %}
